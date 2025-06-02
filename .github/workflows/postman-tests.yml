@@ -32,7 +32,7 @@ jobs:
         newman run postman/weather-api-tests.postman_collection.json -e postman/weather-api-env.postman_environment.json --reporters cli,html --reporter-html-export newman-report.html
 
     - name: Upload Newman Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: newman-report
         path: newman-report.html
