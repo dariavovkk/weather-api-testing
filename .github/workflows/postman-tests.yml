@@ -23,9 +23,12 @@ jobs:
     - name: Install Newman
       run: npm install -g newman
 
+    - name: Install Newman HTML Reporter
+      run: npm install -g newman-reporter-html
+
     - name: Replace {{API_KEY}} in environment with GitHub Secret
       run: |
-        sed -i "s/{{API_KEY}}/${{ secrets.OPENWEATHERMAP_API_KEY }}/g" postman/weather-api-env.postman_environment.json
+        sed -i "s/{{API_KEY}}/${{ secrets.API_KEY }}/g" postman/weather-api-env.postman_environment.json
 
     - name: Run Postman Collection with Newman
       run: |
